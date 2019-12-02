@@ -1,22 +1,28 @@
+/******************************************************************************************************************** */
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+/******************************************************************************************************************** */
 
+import Header from './components/header/header';
 
-import './App.css';
+/******************************************************************************************************************** */
 
 import HomePage from './pages/homepage/homepage';
 import ShopPage from './pages/shop/shop';
-import  SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-amd-sign-up';
+import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-amd-sign-up';
 import CheckoutPage from './pages/checkout/checkout';
 
+/******************************************************************************************************************** */
 
-import Header from './components/header/header';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/users.action';
-
 import { selectCurrentUser } from './redux/user/user.selector';
+
+/******************************************************************************************************************** */
+
+import './App.css';
 
 
 class App extends React.Component {
@@ -54,7 +60,7 @@ componentWillUnmount() {
         <Switch>
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage}  />
-        <Route path='/checkout' component={CheckoutPage}  />
+        <Route exact path='/checkout' component={CheckoutPage}  />
         <Route exact path='/signin' 
            render={() =>
             this.props.currentUser ? (
