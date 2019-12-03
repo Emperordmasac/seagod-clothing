@@ -2,12 +2,12 @@ import React from 'react';
 
 import Main from '../../components/main/main';
 
-import './homepage.scss';
+import { HomePageContainer } from './homepage.styles';
 
 const HomePage = () => (
-    <div className ='homepage' >
+    <HomePageContainer>
         <Main /> 
-    </div>
+    </HomePageContainer>
 
 );
 
