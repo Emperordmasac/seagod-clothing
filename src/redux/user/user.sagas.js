@@ -115,7 +115,7 @@ export function* onSignUpSuccess() {
     yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp)
 }
 
-//////////////////////////////////////////////////////////////
+
 
 
 
@@ -125,6 +125,7 @@ export function* userSagas() {
         call(onEmailSignInStart),
         call(isUserAuthenticated),
         call(onSignUpStart),
-        call(onSignUpSuccess)
+        call(onSignUpSuccess),
+        call(onSignOutStart)
     ]);
 }
